@@ -9,9 +9,35 @@ import java.util.Date;
 
 public class Placa {
 //fields	
-	int licenseNumber;
-	int dayNumber;
-	boolean timeAllowed = true;
+	private int licenseNumber;
+	private int dayNumber;
+	private boolean timeAllowed = true;
+	
+//getters and setters	
+	public int getLicenseNumber() {
+		return licenseNumber;
+	}
+
+	public void setLicenseNumber(int licenseNumber) {
+		this.licenseNumber = licenseNumber;
+	}
+
+	public int getDayNumber() {
+		return dayNumber;
+	}
+
+	public void setDayNumber(int dayNumber) {
+		this.dayNumber = dayNumber;
+	}
+
+	public boolean isTimeAllowed() {
+		return timeAllowed;
+	}
+
+	public void setTimeAllowed(boolean timeAllowed) {
+		this.timeAllowed = timeAllowed;
+	}
+
 //methods	
 	public int convertLicenseNumber(String license){
 			license = license.substring(license.length() - 1);
