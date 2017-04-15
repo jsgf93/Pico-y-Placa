@@ -28,7 +28,7 @@ public class PicoYPlacaApp {
 	     //Invoke methods
 	     
 	     // Validate input
-	     if(validate1.licenseValidation(licenseEntered)==true && validate1.dateValidation(dateEntered)==true && validate1.timeValidation(timeEntered)==true){
+	     if(validate1.licenseValidation(licenseEntered) && validate1.dateValidation(dateEntered) && validate1.timeValidation(timeEntered)){
 	     //Predict Pico y Placa result
 	    	 prediction1.predict(placa1.convertLicenseNumber(licenseEntered), placa1.convertDate(dateEntered), placa1.convertTime(timeEntered));
 	    	 System.out.println("\nDo you want to continue ? y/n\n");
