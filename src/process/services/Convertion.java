@@ -1,60 +1,39 @@
-package source.dto;
+package process.services;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-// Define "Placa" class
-
-public class Placa {
-//fields	
+public class Convertion {
+	
 	private int licenseNumber;
 	private int dayNumber;
 	private boolean timeAllowed = true;
 	
-//getters and setters	
-	public int getLicenseNumber() {
-		return licenseNumber;
-	}
-
-	public void setLicenseNumber(int licenseNumber) {
-		this.licenseNumber = licenseNumber;
-	}
-
-	public int getDayNumber() {
-		return dayNumber;
-	}
-
-	public void setDayNumber(int dayNumber) {
-		this.dayNumber = dayNumber;
-	}
-
-	public boolean isTimeAllowed() {
-		return timeAllowed;
-	}
-
-	public void setTimeAllowed(boolean timeAllowed) {
-		this.timeAllowed = timeAllowed;
-	}
-
-//methods	
+	//This method gets the last digit of the license plate number as a string
+	//and transforms it to an integer.
 	public int convertLicenseNumber(String license){
-			license = license.substring(license.length() - 1);
-			licenseNumber = Integer.parseInt(license);
+		license = license.substring(license.length() - 1);
+		licenseNumber = Integer.parseInt(license);
 		return licenseNumber;
 	}
 	
+	//This method gets the date as a string and transforms it to a date type  in this format: YYYY-MM-DD.
+	//Then gets the day of the week that the date entered represents and returns a number,
+	//according to the day.
 	public int convertDate(String date) throws ParseException{
 		SimpleDateFormat dateFormat = new SimpleDateFormat ("yyyy-MM-dd");
-	
-			Date date1 = dateFormat.parse(date);
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(date1);
-			dayNumber = cal.get(Calendar.DAY_OF_WEEK);
-		
+		Date date1 = dateFormat.parse(date);
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date1);
+		dayNumber = cal.get(Calendar.DAY_OF_WEEK);
 		return dayNumber;
 	}
+	
+	//This method gets the date as a string and transforms it to a time type  in this format: HH:MM. 
+	//Then compares it with the hours  that the "Pico y Placa" applies and returns false if the car 
+	//should not be on the road.
 	public boolean convertTime(String time) throws ParseException{
 		SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 		Date seven = timeFormat.parse("06:59");
@@ -66,5 +45,5 @@ public class Placa {
 			timeAllowed = false;
 		}
 		return timeAllowed;	
-	}	
+	}
 }

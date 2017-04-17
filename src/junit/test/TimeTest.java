@@ -6,19 +6,18 @@ import java.text.ParseException;
 
 import org.junit.Test;
 
-import source.dto.Placa;
+import process.services.Convertion;;
 
 public class TimeTest {
 
 	@Test
 	public void testTime() throws ParseException {
-		Placa test = new Placa();
+		Convertion test = new Convertion();
+		//input
 		boolean result = test.convertTime("06:00");
-		assertEquals(true,result);
 		boolean result1 = test.convertTime("08:00");
+		//output
+		assertEquals(true,result);
 		assertEquals(false,result1);
-		
-		
 	}
-
 }

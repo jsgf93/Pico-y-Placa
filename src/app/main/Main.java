@@ -1,36 +1,41 @@
-package picoyplacaapp.main;
+package app.main;
 
 import java.text.ParseException;
 import java.util.Scanner;
 
 import process.services.*;
-import source.dto.Placa;
+import source.dto.*;
 
-public class PicoYPlacaApp {
+public class Main {
 	
-	 private static Scanner reader;
-
+	private static Scanner reader;
+	
 	public static void main(String[] args) throws ParseException {
-		 
+		
+		 // Instantiate classes.
+	     LicensePlate licenseplate1 = new LicensePlate();
+	     Date date1 = new Date();
+	     Time time1 = new Time();
+	     Prediction prediction1 = new Prediction ();
+	     Validate validate1 = new Validate ();
+	     Convertion convertion1 = new Convertion();
+	     
+		 //Get user input
 		 reader = new Scanner(System.in);
 		 System.out.println("\nEnter a valid license plate code, follow these formats: ABC-123, ABC-1234, AB-123 or AB-1234\n");
-		 String licenseEntered = reader.nextLine();
+		 licenseplate1.setLicensePlateNumber(reader.nextLine());
 		 System.out.println("\nEnter a valid date, follow this format: YYYY-MM-DD\n");
-		 String dateEntered = reader.nextLine();
+		 date1.setDate(reader.nextLine()); 
 		 System.out.println("\nEnter a valid time, follow this format: HH:MM\n");
-		 String timeEntered = reader.nextLine();		 
-		 
-		 // Instantiate classes.
-	     Placa placa1 = new Placa();
-	     Prediction prediction1 = new Prediction ();
-	     Validate validate1 = new Validate (); 
+		 time1.setTime(reader.nextLine());	 
+		   
+	     // Validate user input
+	     if(validate1.licenseValidation(licenseplate1.getLicensePlateNumber()) && validate1.dateValidation(date1.getDate()) && validate1.timeValidation(time1.getTime())){
 	     
-	     //Invoke methods
-	     
-	     // Validate input
-	     if(validate1.licenseValidation(licenseEntered) && validate1.dateValidation(dateEntered) && validate1.timeValidation(timeEntered)){
-	     //Predict Pico y Placa result
-	    	 prediction1.predict(placa1.convertLicenseNumber(licenseEntered), placa1.convertDate(dateEntered), placa1.convertTime(timeEntered));
+	    	 //Predict Pico y Placa result
+	    	 prediction1.predict(convertion1.convertLicenseNumber(licenseplate1.getLicensePlateNumber()), convertion1.convertDate(date1.getDate()), convertion1.convertTime(time1.getTime()));
+	    	 
+	    	 //Ask for another prediction
 	    	 System.out.println("\nDo you want to continue ? y/n\n");
 	    	 String choice = reader.nextLine();
 	    	 if(choice.equals("y") || choice.equals("Y")){

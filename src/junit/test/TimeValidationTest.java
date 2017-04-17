@@ -11,11 +11,11 @@ public class TimeValidationTest {
 	@Test
 	public void testTimeValidation() {
 		Validate test = new Validate();
+		//input
 		boolean result = test.timeValidation("19:00");
-		assertEquals(true,result);
 		boolean result1 = test.timeValidation("1900");
+		//output
+		assertEquals(true,result);
 		assertEquals(false,result1);
-
 	}
-
 }

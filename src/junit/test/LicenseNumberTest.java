@@ -4,14 +4,16 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import source.dto.Placa;
+import process.services.Convertion;
 
 public class LicenseNumberTest {
 
 	@Test
 	public void testLicenseNumber() {
-		Placa test = new Placa();
+		Convertion test = new Convertion();
+		//input
 		int result = test.convertLicenseNumber("ABC-1234");
+		//output
 		assertEquals(4,result);
 	}
 

@@ -11,11 +11,11 @@ public class DateValidationTest {
 	@Test
 	public void testDateValidation() {
 		Validate test = new Validate();
+		//input
 		boolean result = test.dateValidation("2017-01-15");
-		assertEquals(true,result);
 		boolean result1 = test.dateValidation("201701-15");
+		//output
+		assertEquals(true,result);
 		assertEquals(false,result1);
-		
 	}
-
 }
