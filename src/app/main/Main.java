@@ -12,7 +12,7 @@ public class Main {
 	
 	public static void main(String[] args) throws ParseException {
 		
-		 // Instantiate classes.
+		 //Instantiate classes.
 	     LicensePlate licenseplate1 = new LicensePlate();
 	     Date date1 = new Date();
 	     Time time1 = new Time();
@@ -32,7 +32,7 @@ public class Main {
 	     // Validate user input
 	     if(validate1.licenseValidation(licenseplate1.getLicensePlateNumber()) && validate1.dateValidation(date1.getDate()) && validate1.timeValidation(time1.getTime())){
 	     
-	    	 //Predict Pico y Placa result
+	    	 //Predict "Pico y Placa" result
 	    	 prediction1.predict(convertion1.convertLicenseNumber(licenseplate1.getLicensePlateNumber()), convertion1.convertDate(date1.getDate()), convertion1.convertTime(time1.getTime()));
 	    	 
 	    	 //Ask for another prediction

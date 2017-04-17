@@ -2,7 +2,7 @@ package process.services;
 
 public class Prediction {
 	
-	//This method predicts wheter or not a car with a specific license plate number
+	//This method predicts whether or not a car with a specific license plate number
 	//can be on the road at a specific date and time. First, it uses a switch function 
 	//to compare the last digit of the license plate number entered, then if the number
 	//fits in a case depending on the "peak and plate" specifications, the date and time
